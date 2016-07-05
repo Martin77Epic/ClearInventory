@@ -1,0 +1,29 @@
+name: ClearInventory
+api:
+  - 1.0.0
+  - 2.0.0
+  - 1.15.0
+  - 1.5
+main: Martin77Epic\ClearInventory\Main
+version: 0.1
+#Commands!
+command:
+  cim:
+    description: "Clear you Inventory"
+      usage: "/cim"
+  cia:
+    description: "Clear Inventory from all!"
+      usage: "/cia"
+  cip:
+    description: "Clear Inventory from a Player"
+      usage: "/cip <player>"
+#Permissons!
+permissons:
+  m77e.cim:
+    default: op
+  m77e.cia
+    default: op
+  m77e.cip
+    default: op
+
+
