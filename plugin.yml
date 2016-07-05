@@ -1,10 +1,10 @@
 name: ClearInventory
-api: [1.0.0, 2.0.0]
+api: [1.0.0]
 main: Martin77Epic\ClearInventory\Main
 version: 0.1
 load: POSTWORLD
 author: "Martin77Epic, paetti"
-description: ClearInventory Plugin by Martin77Epic and paetti
+description: ClearInventory Plugin by Martin77Epic and paetti.
 # Plugin by Martin77Epic and paetti
 commands:
   cim:
@@ -20,7 +20,7 @@ commands:
 permissons:
   m77e.cim:
     default: op
-  m77e.cia
+  m77e.cia:
     default: op
-  m77e.cip
+  m77e.cip:
     default: op
