@@ -1,5 +1,5 @@
 name: ClearInventory
-api: [1.0.0]
+api: [1.0.0, 2.0.0]
 main: Martin77Epic\ClearInventory\Main
 version: 0.1
 load: POSTWORLD
