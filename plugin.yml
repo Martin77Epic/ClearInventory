@@ -6,7 +6,7 @@ load: POSTWORLD
 author: Martin77Epic and paetti
 description: ClearInventory Plugin by Martin77Epic and paetti.
 # Plugin by Martin77Epic and paetti
-  	commands:
+commands:
  cim:
   description: Clear Mine Inv command
   usage: "Usage: /cim"
