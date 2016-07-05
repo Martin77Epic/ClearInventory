@@ -9,6 +9,7 @@ use pocketmine\command\ConsoleCommandSender;
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
+use pocketmine\inventory\Inventory;
 use pocketmine\utils\TextFormat;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -42,36 +43,26 @@ class Main extends PluginBase implements Listener
 
                 }
             case "cia":
-                if (!($sender instanceof Player)) {
                     $sender->sendMessage(TextFormat::DARK_RED . "Succesfully cleared all Inventorys");
                     foreach ($this->getServer()->getOnlinePlayers() as $players) {
                         $players->getInventory()->clearAll();
-
-
                     }
 
-                }
-            case "cia":
-                if (!($sender instanceof ConsoleCommandSender)) {
-                    if (!($sender->hasPermission(m77e . cia))) {
-                        $sender->sendMessage(TextFormat::DARK_RED . "Succesfully cleard all Inventorys");
-                        foreach ($this->getServer()->getOnlinePlayers() as $players) {
-                            $players->getInventory()->clearAll();
-                        }
-
-                    }
-
-
-
-                }
+               
             case "cip":
-                if (!($sender->hasPermission(m77e.cip))){
-                    foreach ($this->getServer()->getPlayer() as $oneplayer){
-                        $sender->sendMessage(TextFormat::DARK_BLUE . "Succesfully cleared inventory from $oneplayer");
-                        $oneplayer->getInventory()->clearAll();
 
+	 $name = \strtolower(\array_shift($args)); 
+
+		$player = $sender->getServer()->getPlayer($name); 
+
+		
+
+
+                if (!($sender->hasPermission(m77e.cip))){
+                        $sender->sendMessage(TextFormat::DARK_BLUE . "Succesfully cleared inventory from ".$player->getName());
+                   $player->getInventory()->clearAll();
                     }
-                }
+                
 
         }
 
