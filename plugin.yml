@@ -1,22 +1,21 @@
 name: ClearInventory
-api:
-  - 1.0.0
-  - 2.0.0
-  - 1.15.0
-  - 1.5
+api: [1.0.0]
 main: Martin77Epic\ClearInventory\Main
 version: 0.1
-#Commands!
-command:
+load: POSTWORLD
+author: "Martin77Epic, paetti"
+description: ClearInventory Plugin by Martin77Epic and paetti
+# Plugin by Martin77Epic and paetti
+commands:
   cim:
     description: "Clear you Inventory"
-      usage: "/cim"
+      usage: "/cim."
   cia:
     description: "Clear Inventory from all!"
-      usage: "/cia"
+      usage: "/cia."
   cip:
     description: "Clear Inventory from a Player"
-      usage: "/cip <player>"
+      usage: "/cip <player>."
 #Permissons!
 permissons:
   m77e.cim:
@@ -25,5 +24,3 @@ permissons:
     default: op
   m77e.cip
     default: op
-
-
