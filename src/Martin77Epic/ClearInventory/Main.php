@@ -2,9 +2,6 @@
 
 namespace Martin77Epic\ClearInventory;
 
-
-
-
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\event\Listener;
 use pocketmine\Player;
@@ -27,46 +24,38 @@ class Main extends PluginBase implements Listener
     }
     public function onCommand(CommandSender $sender, Command $cmd, $label, array $args)
     {
-        switch ($cmd->getName()) {
+        switch (strtolower($cmd->getName())) {
             case "cim":
                 if (!($sender instanceof Player)) {
                     $sender->sendMessage(TextFormat::DARK_RED . "This command is only in-game avaible");
-                    return true;
-                }
-                if (!($sender instanceof ConsoleCommandSender)) {
-
-
-                    if ($sender->hasPermission(m77e.cim)) {
+                }else{
+                    if ($sender->hasPermission("m77e.cim")) {
                         $sender->sendMessage(TextFormat::GREEN . "Succesfully cleared your Inventory");
                         $sender->getInventory()->clearAll();
                     }
-
                 }
+            break;
+                
             case "cia":
                     $sender->sendMessage(TextFormat::DARK_RED . "Succesfully cleared all Inventorys");
                     foreach ($this->getServer()->getOnlinePlayers() as $players) {
                         $players->getInventory()->clearAll();
-                    }
+            	    }
+            break;
 
                
             case "cip":
 
-	 $name = \strtolower(\array_shift($args)); 
-
-		$player = $sender->getServer()->getPlayer($name); 
-
-		
-
-
-                if (!($sender->hasPermission(m77e.cip))){
-                        $sender->sendMessage(TextFormat::DARK_BLUE . "Succesfully cleared inventory from ".$player->getName());
-                   $player->getInventory()->clearAll();
-                    }
-                
-
+	 	$name = strtolower($args[0]);
+		$player = $sender->getServer()->getPlayer($name);
+		if($player instanceof Player){
+                	if (!($sender->hasPermission(m77e.cip))){
+                        	$sender->sendMessage(TextFormat::DARK_BLUE . "Succesfully cleared inventory from ".$player->getName());
+                   		$player->getInventory()->clearAll();
+                    	}
+		}
+	    break;
         }
-
+        return true;
     }
-
-
 }
