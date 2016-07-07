@@ -46,11 +46,15 @@ class Main extends PluginBase implements Listener
                
             case "cip":
 
-	 	$name = strtolower($args[0]);
+	 	$name = \strtolower(\array_shift($args));
 		$player = $sender->getServer()->getPlayer($name);
+		
+		if($player === $sender){
+			$sender->sendMessage(TextFormat::DARK_RED."You can't clear your inventory does /cim");
+			return \true;
 		if($player instanceof Player){
                 	if (!($sender->hasPermission(m77e.cip))){
-                        	$sender->sendMessage(TextFormat::DARK_BLUE . "Succesfully cleared inventory from ".$player->getName());
+                        	$sender->sendMessage(TextFormat::DARK_BLUE."Succesfully cleared inventory from "$player->getName());
                    		$player->getInventory()->clearAll();
                     	}
 		}
