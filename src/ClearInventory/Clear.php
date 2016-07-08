@@ -6,7 +6,7 @@ namespace ClearInventory;
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
-use pocketmine\command\Command;
+use pocketmine\command\Command;3
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 use pocketmine\Player;
@@ -25,9 +25,16 @@ class Clear extends PluginBase implements Listener
     {
         $this->getLogger()->info(TextFormat::AQUA . "ClearInventory by Martin77Epic disabled");
     }
-    public function onCommand(CommandSender $sender, Command $command, $label, array $args)
+
+    /**
+     * @param CommandSender $sender
+     * @param Command $cmd
+     * @param string $label
+     * @param array $args
+     */
+    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args)
     {
-        if ($command->getName() == "ci") {
+        if ($command->getName() === "ci") {
             if ($sender instanceof Player) {
                 if ($sender->hasPermission(m77e . ci)) {
 
@@ -40,16 +47,23 @@ class Clear extends PluginBase implements Listener
                     if ($command->getName() == cia) {
                         if ($sender->hasPermission(m77e . cia)) {
                             $sender->sendMessage(TextFormat::GREEN . "Succesfully cleared all Inventorys");
-                            foreach ($this->getServer()->getOnlinePlayers() as $onlinePlayers);
+                            foreach ($this->getServer()->getOnlinePlayers() as $onlinePlayers) ;
                             $onlinePlayers->getInventory()->clearAll();
                         }
 
                     }
+
                 }
             }
-
-            }
             
+                
+            }
+        return true;
         }
+
+    
+    
+    
+
 
 }
